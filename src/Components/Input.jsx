@@ -1,19 +1,15 @@
 import { useState } from "react"
 
-const Input = ({password, email}) => {
+const Input = ({password, email, label}) => {
     const [inputValue, setInputValue] = useState('')
 
-    let label = ''
     let inputType = 'text'
-    let isLabel = false
 
     if(password){
-        isLabel = true
-        label = 'Password'
+        {label ? undefined : label = 'Password'}
         inputType = 'password'
     }else if(email){
-        isLabel = true
-        label = 'E-mail'
+        {label ? undefined : label = 'E-mail'}
         inputType = 'email'
     }
 
@@ -29,7 +25,7 @@ const Input = ({password, email}) => {
 
     return (
         <div id="AllInput" className={Style.AllInput}>
-            { isLabel && <label className={Style.label}>{label}</label>}
+            { label && <label className={Style.label}>{label}</label>}
             <input placeholder={label} value={inputValue} onChange={(e) => handleChange(e.target.value)} type={inputType} className={Style.input} />
         </div>
     );
