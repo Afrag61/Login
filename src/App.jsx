@@ -1,4 +1,6 @@
-import Login from "./Components/Login";
+import Page from "./Components/Page.jsx";
+
+import LoginContextProvider from "./Store/LoginContext";
 
 const App = () => {
 
@@ -8,7 +10,9 @@ const App = () => {
 
   return (
     <div id="App" className={Style.App}>
-      <Login />
+      <LoginContextProvider>
+        <Page />
+      </LoginContextProvider>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import { useState } from "react"
 
-const Input = ({password, email, label, placeholder}) => {
-    const [inputValue, setInputValue] = useState('')
+const Input = ({password, email, label, placeholder, onChange, value}) => {
 
     let inputType = 'text'
 
@@ -26,7 +25,7 @@ const Input = ({password, email, label, placeholder}) => {
     return (
         <div id="AllInput" className={Style.AllInput}>
             { label && <label className={Style.label}>{label}</label>}
-            <input placeholder={!placeholder ? label : placeholder} value={inputValue} onChange={(e) => handleChange(e.target.value)} type={inputType} className={Style.input} />
+            <input placeholder={!placeholder ? label : placeholder} value={value} onChange={(e) => onChange(e.target.value)} type={inputType} className={Style.input} />
         </div>
     );
 }
